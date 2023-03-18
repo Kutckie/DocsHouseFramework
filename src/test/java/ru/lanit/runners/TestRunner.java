@@ -20,7 +20,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.UNDERSCORE;
         dryRun = false,
 
         // tags is similar to groups in TestNG
-        tags = "@DocumentsService",
+        tags = "@Docs1",
 
         monochrome = true,
         
@@ -29,9 +29,8 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.UNDERSCORE;
                 "html:target/cucumber-default-report", //create a basic html report in target folder
                 "json:target/cucumber.json",
                 "rerun:target/failed.txt"
-        },
+        }
         
-        snippets = UNDERSCORE
 )
 public class TestRunner {
 

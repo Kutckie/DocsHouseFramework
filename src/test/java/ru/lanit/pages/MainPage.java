@@ -23,8 +23,12 @@ public class MainPage {
     @FindBy(className = "settings-account__avatar")
     public WebElement userAvatar;
     
-    @FindBy(css = ".app-snackbar__content__text")
+    @FindBy(css = ".app-snackbar__content__text") //pop-up in right-bottom corner
     public WebElement message;
+    
+    @FindBy(css = "body .dz-hidden-input")
+    public WebElement fileUpload;
+    
     
     
     /**

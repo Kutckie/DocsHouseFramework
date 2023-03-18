@@ -18,6 +18,12 @@ public class DocumentsPage {
     @FindBy(xpath = "//label[contains(text(), \"Создал\")]/../input")
     public WebElement documentsOwnerField;
     
+    @FindBy(xpath = "//label[contains(text(), \"Дата и время создания\")]/../input")
+    public WebElement dateOfCreation;
+    
+    @FindBy(xpath = "//label[contains(text(), \"Дата и время изменения\")]/../input")
+    public WebElement dateOfEditing;
+    
     public DocumentsPage() {
         PageFactory.initElements(driver, this);
     }

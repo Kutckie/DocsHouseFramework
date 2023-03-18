@@ -23,11 +23,6 @@ public class StorageSteps extends CommonMethods {
         wait(2);
     }
     
-    @When("user clicks ADD button")
-    public void userClicksAddStorageButton() {
-        click(mainPage.addNewButton);
-    }
-    
     @And("user can see Storage Creation form")
     public void userCanSeeStorageCreationForm() {
         Assert.assertTrue(mainPage.descriptionField.isDisplayed());
@@ -46,21 +41,6 @@ public class StorageSteps extends CommonMethods {
     @And("I validate that all required fields are filled")
     public void iValidateThatAllRequiredFieldsAreFilled() {
         Assert.assertTrue(mainPage.saveButton.isEnabled());
-    }
-    
-    @And("пользователь нажимает кнопку \"СОХРАНИТЬ\"")
-    public void userClicksSAVEButton() {
-        click(mainPage.saveButton);
-    }
-    
-    @Then("I validate that Storage is created")
-    public void iValidateThatStorageIsCreated() {
-    }
-    
-    @Then("система выдаёт сообщение {string}")
-    public void iValidateThatMessageIsDisplayed(String expectedMsg) {
-        String actualMsg = mainPage.message.getText();
-        Assert.assertEquals("Actual message is different.", expectedMsg, actualMsg);
     }
     
     @And("пользователь редактирует поле")
@@ -117,6 +97,4 @@ public class StorageSteps extends CommonMethods {
     public void clicksCheckbox() {
         getJSObject().executeScript("arguments[0].click();", storagePage.policyCheckbox);
     }
-    
-    
 }

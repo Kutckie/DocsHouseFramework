@@ -15,13 +15,7 @@ public class DocumentsSteps extends CommonMethods {
     
     @Дано("пользователь находится на основной странице сервиса Документы")
     public void пользовательНаходитсяНаОсновнойСтраницеСервисаДокументы() {
-        driver.get(ConfigsReader.getProperty("DocumentsServiceUR"));
-    }
-    
-    @Когда("система выдаёт сообщение {string}")
-    public void iValidateThatMessageIsDisplayed(String expectedMsg) {
-        String actualMsg = mainPage.message.getText();
-        Assert.assertEquals("Actual message is different.", expectedMsg, actualMsg);
+        driver.get(ConfigsReader.getProperty("DocumentsServiceURL"));
     }
     
     @Когда("пользователь создаёт новый документ")
@@ -31,16 +25,22 @@ public class DocumentsSteps extends CommonMethods {
     
     @И("пользователь заполняет необходимые атрибуты")
     public void пользовательЗаполняетНеобходимыеАтрибуты() {
-    
+        sendText(documentsPage.documentsNameField, "SeleniumDocument");
     }
     
     @Когда("пользователь назначает автором дроугого пользователя")
     public void пользовательНазначаетАвторомДроугогоПользователя() {
-    
     }
     
     @Когда("Пользователь выбирает тип документа;")
     public void пользовательВыбираетТипДокумента() {
+    }
     
+    @Дано("пользователь находится на странице уже созданного документа")
+    public void пользовательНаходитсяНаСтраницеУжеСозданногоДокумента() {
+        driver.get(ConfigsReader.getProperty("DocumentsServiceURL"));
+        doubleClick(documentsPage.seleniumElements);
+        wait(5);
+        //td[contains(text(), "Selenium")]
     }
 }

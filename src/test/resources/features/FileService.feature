@@ -1,9 +1,9 @@
 #language:ru
 @FileService
-Feature: Lanit.ru DocsHouse Storage Service Test
+Функция: : Lanit.ru DocsHouse Storage Service Test
 	
 	@FileService
-	Scenario:
+	Сценарий:
 		Дано пользователь авторизован
 		Дано пользователь находится на основной странице сервиса загрузки файла
 		Когда пользователь нажимает кнопку ДОБАВИТЬ

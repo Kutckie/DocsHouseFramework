@@ -1,13 +1,14 @@
 package ru.lanit.utils;
 
-import java.sql.DriverManager;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.*;
 //import java.io.File;
 //import java.io.IOException;
 
+import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.UnexpectedTagNameException;
@@ -274,6 +275,12 @@ public class CommonMethods extends PageInitializer {
         element.click();
     }
     
+    public static void doubleClick(WebElement element) {
+        Actions action = new Actions(driver);
+        waitForClickability(element);
+        action.doubleClick(element).perform();
+    }
+    
     public static void wait(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
@@ -415,5 +422,17 @@ public class CommonMethods extends PageInitializer {
     public void attachFile(WebDriver driver, WebElement element, String file) {
         unhide(driver, element);
         element.sendKeys(file);
+    }
+    
+    /**
+     * This method will show if element is visible on the screen
+     *
+     * @param element
+     * @return
+     */
+    
+    public void elementExists(WebElement element) {
+        boolean exists = element.isDisplayed();
+        Assert.assertTrue(exists);
     }
 }

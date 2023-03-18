@@ -10,9 +10,9 @@ import static ru.lanit.utils.Constants.UPLOAD_FILE_PATH;
 public class FileSteps extends CommonMethods {
     @When("user uploads file")
     public void userUploadsFile(){
-        unhide(driver, filePage.fileUpload);
+        unhide(driver, mainPage.fileUpload);
         wait(1);
-        attachFile(driver, filePage.fileUpload, UPLOAD_FILE_PATH);
+        attachFile(driver, mainPage.fileUpload, UPLOAD_FILE_PATH);
         click(mainPage.saveButton);
     }
 
