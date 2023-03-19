@@ -42,9 +42,9 @@ public class LoginSteps extends CommonMethods{
         Assert.assertTrue(mainPage.userAvatar.isDisplayed());
     }
     
-    @Дано("пользователь авторизован на демо стенде")
-    public void пользовательАвторизованНаДемоСтенде() {
-        //driver.get("Demo-URL"); //change into hook later
+    @Дано("пользователь авторизован на {string} стенде")
+    public void пользовательАвторизованНаСтенде(String standName) {
+        driver.get(ConfigsReader.getStandURL(standName));
         sendText(loginPage.userName, ConfigsReader.getProperty("username"));
         sendText(loginPage.password, ConfigsReader.getProperty("password"));
         click(loginPage.loginBtn);

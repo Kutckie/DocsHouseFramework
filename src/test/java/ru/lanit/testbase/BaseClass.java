@@ -18,13 +18,11 @@ public class BaseClass {
     
 
     /**
-     * This method will create a driver and return it
-     *
-     * @return WebDriver driver
+     * This method will create a driver
      */
-    public static WebDriver setUp() {
+    public static void setUp() {
         ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
-
+        
         switch (ConfigsReader.getProperty("browser").toLowerCase()) {
             case "chrome":
                 //System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_PATH);
@@ -43,15 +41,12 @@ public class BaseClass {
             default:
                 throw new RuntimeException("Browser is not supported!");
         }
-
+        
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
         driver.manage().window().maximize();
-        driver.get(ConfigsReader.getProperty("Demo-URL"));
 
         // we initialize all the page elements of the classes in package ru.lanit.pages
         PageInitializer.initialize();
-
-        return driver;
     }
 
     /**
