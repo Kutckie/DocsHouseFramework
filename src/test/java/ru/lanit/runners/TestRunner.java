@@ -20,7 +20,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.UNDERSCORE;
         dryRun = false,
 
         // tags is similar to groups in TestNG
-        tags = "@Docs1",
+        tags = "@DocumentsServiceProduct",
 
         monochrome = true,
         

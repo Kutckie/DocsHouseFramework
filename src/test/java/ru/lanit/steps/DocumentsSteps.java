@@ -9,13 +9,16 @@ import org.junit.Assert;
 import ru.lanit.utils.CommonMethods;
 import ru.lanit.utils.ConfigsReader;
 
+
 import static ru.lanit.testbase.BaseClass.driver;
+import static ru.lanit.utils.Constants.DEMO_URL;
 
 public class DocumentsSteps extends CommonMethods {
     
     @Дано("пользователь находится на основной странице сервиса Документы")
     public void пользовательНаходитсяНаОсновнойСтраницеСервисаДокументы() {
-        driver.get(ConfigsReader.getProperty("DocumentsServiceURL"));
+        String documents_url = DEMO_URL + "documents-service";
+        driver.get(ConfigsReader.getProperty(documents_url));
     }
     
     @Когда("пользователь создаёт новый документ")
@@ -40,7 +43,12 @@ public class DocumentsSteps extends CommonMethods {
     public void пользовательНаходитсяНаСтраницеУжеСозданногоДокумента() {
         driver.get(ConfigsReader.getProperty("DocumentsServiceURL"));
         doubleClick(documentsPage.seleniumElements);
-        wait(5);
         //td[contains(text(), "Selenium")]
+    }
+    
+    @И("пользователь может наблюдать созданный документ в списке документов")
+    public void пользовательМожетНаблюдатьСозданныйДокументВСпискеДокументов() {
+        driver.get("https://docshouse.k8s.lan.lanit.ru/documents-service/auto_postman_test");
+        elementExists(documentsPage.seleniumElements);
     }
 }

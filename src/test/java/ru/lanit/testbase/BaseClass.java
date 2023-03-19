@@ -1,5 +1,6 @@
 package ru.lanit.testbase;
 
+import java.io.ObjectInputFilter;
 import java.time.Duration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -14,6 +15,7 @@ import ru.lanit.utils.Constants;
 public class BaseClass {
 
     public static WebDriver driver;
+    
 
     /**
      * This method will create a driver and return it
@@ -44,7 +46,7 @@ public class BaseClass {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
         driver.manage().window().maximize();
-        driver.get(ConfigsReader.getProperty("URL"));
+        driver.get(ConfigsReader.getProperty("Demo-URL"));
 
         // we initialize all the page elements of the classes in package ru.lanit.pages
         PageInitializer.initialize();

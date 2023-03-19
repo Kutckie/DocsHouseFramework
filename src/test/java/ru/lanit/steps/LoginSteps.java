@@ -1,6 +1,7 @@
 package ru.lanit.steps;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.ru.Дано;
 import org.junit.Assert;
 
 import ru.lanit.utils.CommonMethods;
@@ -39,6 +40,16 @@ public class LoginSteps extends CommonMethods{
     @Then("I validate that user is logged in")
     public void i_validate_that_user_is_logged_in() {
         Assert.assertTrue(mainPage.userAvatar.isDisplayed());
+    }
+    
+    @Дано("пользователь авторизован на демо стенде")
+    public void пользовательАвторизованНаДемоСтенде() {
+        //driver.get("Demo-URL"); //change into hook later
+        sendText(loginPage.userName, ConfigsReader.getProperty("username"));
+        sendText(loginPage.password, ConfigsReader.getProperty("password"));
+        click(loginPage.loginBtn);
+        wait(2);
+        //Assert.assertTrue(mainPage.userAvatar.isDisplayed());
     }
 
 //    @When("user leaves password empty")

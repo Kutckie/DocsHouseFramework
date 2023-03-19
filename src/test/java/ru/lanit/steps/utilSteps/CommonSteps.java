@@ -21,9 +21,7 @@ public class CommonSteps extends CommonMethods {
     @Когда("пользователь загружает файл")
     public void userUploadsFile(){
         unhide(driver, mainPage.fileUpload);
-        wait(1);
         attachFile(driver, mainPage.fileUpload, UPLOAD_FILE_PATH);
-        click(mainPage.saveButton);
     }
     
     @И("пользователь нажимает кнопку \"ДОБАВИТЬ\"")

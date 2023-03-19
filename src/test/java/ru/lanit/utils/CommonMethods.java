@@ -433,6 +433,6 @@ public class CommonMethods extends PageInitializer {
     
     public void elementExists(WebElement element) {
         boolean exists = element.isDisplayed();
-        Assert.assertTrue(exists);
+        Assert.assertTrue("Assert failed", exists);
     }
 }
