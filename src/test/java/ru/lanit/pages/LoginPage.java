@@ -14,7 +14,7 @@ public class LoginPage {
     @FindBy(css = "input[type='password']")
     public WebElement password;
 
-    @FindBy(css="[type=\"submit\"]")
+    @FindBy(css="[type='submit']")
     public WebElement loginBtn;
 
     public LoginPage() {

@@ -4,7 +4,7 @@ import java.time.Duration;
 
 public class Constants {
     
-    public static final String DEMO_URL = System.getProperty("Demo-URL");
+    public static final String DEMO_URL = System.getProperty("DemoStandURL");
 
     public static final String CHROME_DRIVER_PATH = System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe";
 
