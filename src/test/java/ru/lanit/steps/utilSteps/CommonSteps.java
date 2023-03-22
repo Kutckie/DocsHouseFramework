@@ -33,4 +33,10 @@ public class CommonSteps extends CommonMethods {
     public void userClicksSAVEButton() {
         click(mainPage.saveButton);
     }
+    
+    @И("пользователь нажимает кнопку \"УДАЛИТЬ\"")
+    public void userClicksDELETEButton(){
+        click(mainPage.deleteButton);
+        click(mainPage.modalDeleteButton);
+    }
 }

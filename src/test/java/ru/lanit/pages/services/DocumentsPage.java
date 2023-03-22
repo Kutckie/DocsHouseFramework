@@ -24,6 +24,10 @@ public class DocumentsPage {
     @FindBy(xpath = "//label[contains(text(), \"Дата и время изменения\")]/../input")
     public WebElement dateOfEditing;
     
+    @FindBy(xpath = "//td[contains(text(), \"Selenium\")]//..//div//div//div")
+    public WebElement checkbox;
+    
+    
     public DocumentsPage() {
         PageFactory.initElements(driver, this);
     }

@@ -2,16 +2,11 @@ package ru.lanit.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import io.cucumber.java.ru.Дано;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import ru.lanit.utils.CommonMethods;
 import ru.lanit.utils.ConfigsReader;
-
-import java.util.Random;
 
 public class StorageSteps extends CommonMethods {
     
@@ -66,7 +61,7 @@ public class StorageSteps extends CommonMethods {
     
     @And("user confirms Storage deletion")
     public void userConfirmsStorageDeletion() {
-        click(storagePage.modalDeleteButton);
+        click(mainPage.modalDeleteButton);
         //getJSObject().executeScript("arguments[0].click();", storagePage.modalDeleteButton); //$('Удалить').trigger('click')
         wait(3);
     }

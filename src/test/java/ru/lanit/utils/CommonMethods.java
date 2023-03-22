@@ -431,8 +431,19 @@ public class CommonMethods extends PageInitializer {
      * @return
      */
     
-    public void elementExists(WebElement element) {
+    public void isElementExists(WebElement element) {
         boolean exists = element.isDisplayed();
         Assert.assertTrue("Assert failed", exists);
+    }
+    
+    /**
+     * This method will navigate to url by domain name +
+     *
+     * @param String - endpoint part of url. Example: /documents-service
+     *
+     */
+    
+    public void navigateTo(String url) {
+        driver.navigate().to("https://" + (getJSObject().executeScript("return document.domain;").toString()) + url);
     }
 }
