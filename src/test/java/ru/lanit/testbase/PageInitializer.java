@@ -1,6 +1,5 @@
 package ru.lanit.testbase;
 
-import io.cucumber.core.cli.Main;
 import ru.lanit.pages.LoginPage;
 import ru.lanit.pages.MainPage;
 import ru.lanit.pages.services.DocumentsPage;

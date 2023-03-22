@@ -1,6 +1,5 @@
 package ru.lanit.testbase;
 
-import java.io.ObjectInputFilter;
 import java.time.Duration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -15,7 +14,6 @@ import ru.lanit.utils.Constants;
 public class BaseClass {
 
     public static WebDriver driver;
-//    public String environment = ConfigsReader.getProperty("config_environment");
     
     /**
      * This method will create a driver
@@ -24,7 +22,7 @@ public class BaseClass {
         ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
         
         switch (ConfigsReader.getProperty("browser").toLowerCase()) { //driver setup
-            case "chrome":
+            case "chrome":  //chrome setup
                 //System.setProperty("webdriver.chrome.driver", Constants.CHROME_DRIVER_PATH);
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
@@ -33,7 +31,7 @@ public class BaseClass {
                 options.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(options);
                 break;
-            case "firefox":
+            case "firefox": //firefox setup
                 //System.setProperty("webdriver.gecko.driver", Constants.GECKO_DRIVER_PATH);
                 WebDriverManager.chromedriver().setup();
                 driver = new FirefoxDriver();
@@ -41,22 +39,24 @@ public class BaseClass {
             default:
                 throw new RuntimeException("Browser is not supported!");
         }
+        
+        String environment = "demo";
+        switch (environment) {
+            case "test" -> {
+                String stand = ConfigsReader.getProperty("TestStandURL");
+                driver.get(stand);
+            }
+            case "demo" -> {
+                String stand = ConfigsReader.getProperty("DemoStandURL");
+                driver.get(stand);
+            }
+            default -> throw new RuntimeException("Wrong env");
+        }
+        
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Constants.IMPLICIT_WAIT_TIME));
         driver.manage().window().maximize();
-        driver.get(ConfigsReader.getProperty("DemoStandURL"));
+        //driver.get(ConfigsReader.getProperty("DemoStandURL"));
         
-//        switch (environment) {
-//            case "test":
-//                environment = ConfigsReader.getProperty("TestStandURL");
-//                driver.get(environment);
-//                break;
-//            case "demo":
-//                environment = ConfigsReader.getProperty("DemoStandURL");
-//                driver.get(environment);
-//                break;
-//            default:
-//                throw new RuntimeException("wrong env");
-//        }
 
         // we initialize all the page elements of the classes in package ru.lanit.pages
         PageInitializer.initialize();

@@ -5,15 +5,20 @@ import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 
 import ru.lanit.utils.CommonMethods;
-import ru.lanit.utils.ConfigsReader;
 
-import static ru.lanit.utils.Constants.DEMO_URL;
 
 public class DocumentsSteps extends CommonMethods {
     
+    private final String documentsEndpoint = "/documents-service/auto_postman_test";
+    
+//    @Дано("пользователь находится на основной странице сервиса Документы")
+//    public void пользовательНаходитсяНаОсновнойСтраницеСервисаДокументы() {
+//        driver.navigate().to((ConfigsReader.getProperty("DemoStandURL")) + "documents-service/");
+//    }
+    
     @Дано("пользователь находится на основной странице сервиса Документы")
     public void пользовательНаходитсяНаОсновнойСтраницеСервисаДокументы() {
-        driver.get((ConfigsReader.getProperty("DemoStandURL")) + "documents-service/");
+        navigateTo(documentsEndpoint);
     }
     
     @Когда("пользователь создаёт новый документ")
@@ -28,14 +33,31 @@ public class DocumentsSteps extends CommonMethods {
     
     @Дано("пользователь находится на странице уже созданного документа")
     public void пользовательНаходитсяНаСтраницеУжеСозданногоДокумента() {
-        driver.get(ConfigsReader.getProperty("DocumentsServiceURL"));
+        navigateTo(documentsEndpoint);
         doubleClick(documentsPage.seleniumElements);
         //td[contains(text(), "Selenium")]
     }
     
     @И("пользователь может наблюдать созданный документ в списке документов")
     public void пользовательМожетНаблюдатьСозданныйДокументВСпискеДокументов() {
-        driver.get((ConfigsReader.getProperty("DemoStandURL")) + "documents-service/");
-        elementExists(documentsPage.seleniumElements);
+        navigateTo(documentsEndpoint);
+        isElementExists(documentsPage.seleniumElements);
+    }
+    
+    @Когда("пользователь редактирует документ")
+    public void пользовательРедактируетДокумент() {
+        sendText(documentsPage.documentsNameField, "_Edited " + randomGen(999));
+    }
+    
+    
+    @Когда("пользователь нажимает на чекбокс элемента")
+    public void пользовательНажимаетНаЧекбоксЭлемента() {
+        getJSObject().executeScript("arguments[0].click();", documentsPage.checkbox);
+    }
+    
+    @Когда("пользователь использует функцию поиска")
+    public void пользовательИспользуетФункциюПоиска() {
+        click(mainPage.searchButton);
+        sendText(mainPage.searchNameField, "Selenium");
     }
 }

@@ -2,11 +2,8 @@ package ru.lanit.runners;
 
 import org.junit.runner.RunWith;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-
-import static io.cucumber.junit.CucumberOptions.SnippetType.UNDERSCORE;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -20,7 +17,7 @@ import static io.cucumber.junit.CucumberOptions.SnippetType.UNDERSCORE;
         dryRun = false,
 
         // tags is similar to groups in TestNG
-        tags = "@DocumentsServiceProduct",
+        tags = "@DocumentsService",
 
         monochrome = true,
         

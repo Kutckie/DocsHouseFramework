@@ -10,16 +10,22 @@ public class MainPage {
     /**
      * Buttons and misc elements
      */
-
+    
+    @FindBy(css = "div .dh-workspace-area-actions__search button")
+    public WebElement searchButton;
+    
+    @FindBy(xpath = "//span[contains(text(), \"Сохранить\")]/..")
+    public WebElement searchSAVEButton;
+    
     @FindBy(className = "dh-workspace-area-actions__add")
     public WebElement addNewButton;
-
+    
     @FindBy(css = "div .dh-workspace-area-actions__save button")
     public  WebElement saveButton;
-
+    
     @FindBy(css = "div .dh-workspace-area-actions__delete button")
     public WebElement deleteButton;
-
+    
     @FindBy(className = "settings-account__avatar")
     public WebElement userAvatar;
     
@@ -29,11 +35,16 @@ public class MainPage {
     @FindBy(css = "body .dz-hidden-input")
     public WebElement fileUpload;
     
+    @FindBy(css = "#app > div.v-dialog__content.v-dialog__content--active > div > div > div.v-card__actions > div:nth-child(3) > button")
+    public WebElement modalDeleteButton;
+    
     
     
     /**
      * Field elements
      */
+    @FindBy(xpath = "//label[contains(text(), \"Название объекта\")]//input")
+    public WebElement searchNameField;
 
     @FindBy(css = "div .text-field__name input")
     public WebElement nameField;

@@ -1,7 +1,6 @@
 package ru.lanit.steps;
 
 import ru.lanit.testbase.BaseClass;
-import ru.lanit.utils.CommonMethods;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

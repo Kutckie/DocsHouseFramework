@@ -1,12 +1,8 @@
 package ru.lanit.pages.services;
 
-import org.checkerframework.checker.index.qual.PolyUpperBound;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import ru.lanit.testbase.BaseClass;
-
-import java.util.List;
 
 import static ru.lanit.testbase.BaseClass.driver;
 
@@ -30,9 +26,6 @@ public class StoragePage {
 
     @FindBy(xpath ="//div[contains(text(), \"Selenium\")]/..//input[@type=\"checkbox\"]")
     public WebElement storageCheckbox;
-
-    @FindBy(css = "#app > div.v-dialog__content.v-dialog__content--active > div > div > div.v-card__actions > div:nth-child(3) > button")
-    public WebElement modalDeleteButton;
 
     @FindBy(xpath = "/html/body/div/div[1]/main/div/div/dh-storages-service/div/div/div/div/div/div/div[2]/div[1]/form/div[4]/div[1]/div/div/div[1]/div/input") //div .switch__deduplication input
     public WebElement deduplicationButton;
