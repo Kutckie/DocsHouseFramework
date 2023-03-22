@@ -17,7 +17,7 @@ import io.cucumber.junit.CucumberOptions;
         dryRun = false,
 
         // tags is similar to groups in TestNG
-        tags = "@123",
+        tags = "@DocumentsService",
 
         monochrome = true,
         
