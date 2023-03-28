@@ -425,10 +425,10 @@ public class CommonMethods extends PageInitializer {
     }
     
     /**
-     * This method will show if element is visible on the screen
+     * This method will make assertion of visibility
      *
      * @param element
-     * @return
+     *
      */
     
     public void isElementExists(WebElement element) {
@@ -446,4 +446,6 @@ public class CommonMethods extends PageInitializer {
     public void navigateTo(String url) {
         driver.navigate().to("https://" + (getJSObject().executeScript("return document.domain;").toString()) + url);
     }
+    
+    
 }

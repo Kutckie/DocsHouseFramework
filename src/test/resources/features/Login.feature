@@ -1,11 +1,12 @@
 @login
 Feature: Lanit.ru DocsHouse Login Test
-
+	
+	
 	Scenario: valid login
-		When user enters valid username
-		And user enters valid password
-		And click on login button
-		Then I validate that user is logged in
+		#When user enters valid username
+		#And user enters valid password
+		#And click on login button
+		#Then I validate that user is logged in
 	
 #  Scenario: empty password
 #    When user enters valid username

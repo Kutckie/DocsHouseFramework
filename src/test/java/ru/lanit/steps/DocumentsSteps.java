@@ -4,6 +4,8 @@ import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 
+import io.cucumber.java.ru.Тогда;
+import ru.lanit.utils.Assertions;
 import ru.lanit.utils.CommonMethods;
 
 
@@ -59,5 +61,11 @@ public class DocumentsSteps extends CommonMethods {
     public void пользовательИспользуетФункциюПоиска() {
         click(mainPage.searchButton);
         sendText(mainPage.searchNameField, "Selenium");
+    }
+    
+    @Тогда("пользователь может наблюдать элементы, соответствующие критериям поиска")
+    public void пользовательМожетНаблюдатьЭлементыСоответствующиеКритериямПоиска() {
+        //documentsPage.noDataFoundSearchMessage.isDisplayed();
+        Assertions.isTextEquals();
     }
 }

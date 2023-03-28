@@ -1,11 +1,9 @@
 package ru.lanit.steps.utilSteps;
 
-
-
-import io.cucumber.java.en.When;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 import org.junit.Assert;
+import ru.lanit.utils.Assertions;
 import ru.lanit.utils.CommonMethods;
 
 import static ru.lanit.utils.Constants.UPLOAD_FILE_PATH;
@@ -14,8 +12,7 @@ public class CommonSteps extends CommonMethods {
     
     @Когда("система выдаёт сообщение {string}")
     public void iValidateThatMessageIsDisplayed(String expectedMsg) {
-        String actualMsg = mainPage.message.getText();
-        Assert.assertEquals("Actual message is different.", expectedMsg, actualMsg);
+        Assertions.isCorrectMessage(expectedMsg);
     }
     
     @Когда("пользователь загружает файл")
@@ -38,5 +35,19 @@ public class CommonSteps extends CommonMethods {
     public void userClicksDELETEButton(){
         click(mainPage.deleteButton);
         click(mainPage.modalDeleteButton);
+    }
+    
+    @И("пользователь сохраняет созданный шаблон поиска")
+    public void пользовательСохраняетСозданныйШаблонПоиска() {
+        click(mainPage.searchSAVEButton);
+        waitForClickability(mainPage.searchModalWindow);
+        waitForVisibility(mainPage.searchModalWindow);
+        sendText(mainPage.searchModalField, "SeleniumTemplate");
+        click(mainPage.searchModalSAVEButton);
+    }
+    
+    @И("жди {int}")
+    public void жди(int waittime) {
+        wait(waittime);
     }
 }

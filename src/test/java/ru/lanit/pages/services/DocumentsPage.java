@@ -27,6 +27,9 @@ public class DocumentsPage {
     @FindBy(xpath = "//td[contains(text(), \"Selenium\")]//..//div//div//div")
     public WebElement checkbox;
     
+    @FindBy(xpath = "//p[contains(text(), \"Нет данных для отображения\")]")
+    public WebElement noDataFoundSearchMessage;
+    
     
     public DocumentsPage() {
         PageFactory.initElements(driver, this);
