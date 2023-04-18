@@ -4,12 +4,15 @@ import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Когда;
 
+import io.cucumber.java.ru.Тогда;
+import ru.lanit.utils.Assertions;
 import ru.lanit.utils.CommonMethods;
 
 
 public class DocumentsSteps extends CommonMethods {
     
-    private final String documentsEndpoint = "/documents-service/auto_postman_test";
+    private final String documentsEndpoint = "/documents-service/objects";
+    private final String documentsCreationEndpoint = "/documents-service/objects/create/auto_postman_test/";
     
 //    @Дано("пользователь находится на основной странице сервиса Документы")
 //    public void пользовательНаходитсяНаОсновнойСтраницеСервисаДокументы() {
@@ -18,7 +21,7 @@ public class DocumentsSteps extends CommonMethods {
     
     @Дано("пользователь находится на основной странице сервиса Документы")
     public void пользовательНаходитсяНаОсновнойСтраницеСервисаДокументы() {
-        navigateTo(documentsEndpoint);
+        navigateTo(documentsCreationEndpoint);
     }
     
     @Когда("пользователь создаёт новый документ")
@@ -57,7 +60,14 @@ public class DocumentsSteps extends CommonMethods {
     
     @Когда("пользователь использует функцию поиска")
     public void пользовательИспользуетФункциюПоиска() {
+        waitForVisibility(mainPage.searchButton);
         click(mainPage.searchButton);
         sendText(mainPage.searchNameField, "Selenium");
+    }
+    
+    @Тогда("пользователь может наблюдать элементы, соответствующие критериям поиска")
+    public void пользовательМожетНаблюдатьЭлементыСоответствующиеКритериямПоиска() {
+        //documentsPage.noDataFoundSearchMessage.isDisplayed();
+        Assertions.isTextEquals();
     }
 }

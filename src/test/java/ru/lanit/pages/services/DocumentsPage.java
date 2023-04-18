@@ -9,7 +9,7 @@ import static ru.lanit.testbase.BaseClass.driver;
 
 public class DocumentsPage {
     
-    @FindBy(xpath = "//td[contains(text(), \"SeleniumDocument\")]") //used to search element containers with "Selenium" text
+    @FindBy(xpath = "//td[contains(text(), \"Selenium\")]") //used to search element containers with "Selenium" text
     public WebElement seleniumElements;
     
     @FindBy(xpath = "//label[contains(text(), \"Название объекта\")]/../input")
@@ -26,6 +26,9 @@ public class DocumentsPage {
     
     @FindBy(xpath = "//td[contains(text(), \"Selenium\")]//..//div//div//div")
     public WebElement checkbox;
+    
+    @FindBy(xpath = "//p[contains(text(), \"Нет данных для отображения\")]")
+    public WebElement noDataFoundSearchMessage;
     
     
     public DocumentsPage() {

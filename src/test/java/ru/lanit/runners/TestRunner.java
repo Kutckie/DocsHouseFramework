@@ -17,13 +17,14 @@ import io.cucumber.junit.CucumberOptions;
         dryRun = false,
 
         // tags is similar to groups in TestNG
-        tags = "@DocumentsService",
+        tags = "@ModelObjectService",
 
         monochrome = true,
+        publish = true,
         
         plugin = {
                 "pretty", //prints gherkin steps in console
-                "html:target/cucumber-default-report", //create a basic html report in target folder
+                "html:target/cucumber-default-report.html", //create a basic html report in target folder
                 "json:target/cucumber.json",
                 "rerun:target/failed.txt"
         }

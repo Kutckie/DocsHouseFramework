@@ -40,7 +40,7 @@ public class BaseClass {
                 throw new RuntimeException("Browser is not supported!");
         }
         
-        String environment = "demo";
+        String environment = "test";
         switch (environment) {
             case "test" -> {
                 String stand = ConfigsReader.getProperty("TestStandURL");

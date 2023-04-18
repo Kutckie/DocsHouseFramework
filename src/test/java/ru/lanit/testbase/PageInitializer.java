@@ -4,6 +4,7 @@ import ru.lanit.pages.LoginPage;
 import ru.lanit.pages.MainPage;
 import ru.lanit.pages.services.DocumentsPage;
 import ru.lanit.pages.services.FilePage;
+import ru.lanit.pages.services.ModelObjectPage;
 import ru.lanit.pages.services.StoragePage;
 
 public class PageInitializer extends BaseClass {
@@ -13,7 +14,7 @@ public class PageInitializer extends BaseClass {
     public static StoragePage storagePage;
     public static FilePage filePage;
     public static DocumentsPage documentsPage;
-
+    public static ModelObjectPage modelObjectPage;
 
     public static void initialize() {
         // initialize pages
@@ -22,6 +23,7 @@ public class PageInitializer extends BaseClass {
         storagePage = new StoragePage();
         filePage = new FilePage();
         documentsPage = new DocumentsPage();
+        modelObjectPage = new ModelObjectPage();
 
 
     }
